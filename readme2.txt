@@ -1,22 +1,35 @@
-Ö®Ç°µÄÀïÃæÁ½¸öÍøÒ³µÄ½»Á÷£¬ÏŞÓÚformÀïµÄactionÊôĞÔµÄ°ïÃ¦£¬µ«Ò»°ãµÄ½»Á÷ÄÑÒÔÖ±½ÓÌ×ÓÃ£¬ÏÖ×ö³ö¸Ä½ø£º
+ä¹‹å‰çš„é‡Œé¢ä¸¤ä¸ªç½‘é¡µçš„äº¤æµï¼Œé™äºformé‡Œçš„actionå±æ€§çš„å¸®å¿™ï¼Œä½†ä¸€èˆ¬çš„äº¤æµéš¾ä»¥ç›´æ¥å¥—ç”¨ï¼Œç°åšå‡ºæ”¹è¿›ï¼š
 
-.pyÎÄ¼şÖĞ£º
+.pyæ–‡ä»¶ä¸­ï¼š
 @app.route('/<email>/success')
 def success(email):
     return render_template('success.html',email=email)
-#ÆäÖĞ£¬<>ÖĞµÄ¶«Î÷µÄÄ¬ÈÏÊı¾İÀàĞÍÎªstring£¬Èç¹ûÒªÖ¸¶¨ÀàĞÍÊ±£¬¿ÉÒÔĞ´Îª£º
-<type:name>,ÆäÖĞtypeÎªÀàĞÍÃû£¬ÓĞ
-int£¬
-float£¬
-path£¨Í¬string£¬µ«¿ÉÒÔ½ÓÊÜ/£©£¬
-uuid£¨Î¨Ò»Ê¶±ğÂë£©£¬
-any£¨¶àÖÖÂ·¾¶£©eg£º<any(article,blog):url_path>,¼´url_pathµÄÖµ¿ÉÒÔÎªarticle,blogÖĞÈÎºÎÒ»¸ö¡£
+#å…¶ä¸­ï¼Œ<>ä¸­çš„ä¸œè¥¿çš„é»˜è®¤æ•°æ®ç±»å‹ä¸ºstringï¼Œå¦‚æœè¦æŒ‡å®šç±»å‹æ—¶ï¼Œå¯ä»¥å†™ä¸ºï¼š
+<type:name>,å…¶ä¸­typeä¸ºç±»å‹åï¼Œæœ‰
+intï¼Œ
+floatï¼Œ
+pathï¼ˆåŒstringï¼Œä½†å¯ä»¥æ¥å—/ï¼‰ï¼Œ
+uuidï¼ˆå”¯ä¸€è¯†åˆ«ç ï¼‰ï¼Œ
+anyï¼ˆå¤šç§è·¯å¾„ï¼‰egï¼š<any(article,blog):url_path>,å³url_pathçš„å€¼å¯ä»¥ä¸ºarticle,blogä¸­ä»»ä½•ä¸€ä¸ªã€‚
 
-Èç¹ûĞèÒª´«µİµÄ²ÎÊıÔÚlogin.htmlÖĞÎªemail£º
-login.htmlÎÄ¼şÈçÏÂ£º
+å¦‚æœéœ€è¦ä¼ é€’çš„å‚æ•°åœ¨login.htmlä¸­ä¸ºemailï¼š
+login.htmlæ–‡ä»¶å¦‚ä¸‹ï¼š
 var email="123@163.com";
 function c(){
     self.location.href="http://127.0.0.1:5000/"+email+"/success";
 }
 
-ÔòÊµÏÖemailµÄ´«µİ¡£
+åˆ™å®ç°emailçš„ä¼ é€’ã€‚
+
+
+å¦è¡¥å……ï¼š
+1.è®©å…¶ä»–ç”µè„‘å¯ä»¥è®¿é—®ï¼š
+app.run(host='0.0.0.0')
+
+2.route()çš„ä½œç”¨ï¼šæŠŠå‡½æ•°ç»‘å®šåœ¨è¿™ä¸ªURLä¸Šï¼Œæ³¨æ„.pyä¸­çš„å‡½æ•°ä¸å¯é‡åã€‚
+
+3.URLé‡å®šå‘ï¼š
+from flask import redirect
+@app.route('/about/aa')
+def aa():
+    return redirect('/projects/')
